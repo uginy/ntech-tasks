@@ -1,0 +1,232 @@
+@import "../../scss/globalVariables";
+.main-content {
+  width: 70vw;
+  margin-left: 20vw;
+  padding-right: 10vw;
+  padding-top: 15vh;
+  min-height: 75vh;
+  background-color: $background-color;
+  color: $base-font-color;
+  padding-bottom: 10vh;
+  font-size: $font-size*1.2;
+  .card:hover {
+    background-color: grey;
+    color: $second-font-color;
+    transition: 0.7s;
+    .card-second-data {
+      border-left: 1px solid $second-font-color;
+    }
+  }
+  .card {
+    width: 50vw;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 1vh;
+    padding: 1vh 0;
+    background-color: $second-font-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    cursor: pointer;
+    .card-main-data {
+      width: 25vw;
+      .user-main {
+        padding-left: 2vw;
+        margin-top: 0.5vh;
+        span {
+          margin-right: 1vw;
+          color: darkgray;
+        }
+      }
+
+    }
+    .card-second-data {
+      width: 25vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-left: 5vw;
+      padding-left: 0;
+      border-left: 1px solid grey;
+      .user-second {
+        padding-left: 2vw;
+        margin-top: 0.5vh;
+        span {
+          margin-right: 1vw;
+          color: darkgray;
+        }
+      }
+
+    }
+  }
+  .card-photo {
+     width: 50vw;
+     margin-right: 10vw;
+     margin-left: 10vw;
+     margin-bottom: 1vh;
+     padding: 1vh 0.5vw;
+     background-color: $second-font-color;
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-start;
+     cursor: pointer;
+
+     .photo-info {
+       padding-left: 2vw;
+       margin-top: 0.5vh;
+       div{
+         margin-top: 5%;
+         span {
+           margin-right: 1vw;
+           color: darkgray;
+         }
+       }
+     }
+
+   }
+  .card-todo {
+    width: 50vw;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 1vh;
+    padding: 1vh 0.5vw;
+    background-color: $second-font-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    cursor: pointer;
+    .todo-user{
+      width: 10vw;
+      text-align: center;
+      border: 1px solid grey;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: $font-size;
+      color: grey;
+      .todo-user-number{
+        font-weight: bold;
+        font-size: $font-size*1.2;
+      }
+    }
+
+    .todo-info {
+      padding-left: 2vw;
+      margin-top: 0.5vh;
+
+      div{
+        margin-top: 5%;
+        span {
+          margin-right: 1vw;
+          color: darkgray;
+        }
+      }
+    }
+
+  }
+  .card-posts {
+    width: 50vw;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 1vh;
+    padding: 1vh 0.5vw;
+    background-color: $second-font-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    cursor: pointer;
+    .posts-user{
+      width: 10vw;
+      text-align: center;
+      border: 1px solid grey;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: $font-size;
+      color: $base-font-color;
+      background-color: #dfdfdf;
+      .posts-user-number{
+        width: 10vw;
+        font-weight: bold;
+        font-size: $font-size*1.2;
+      }
+    }
+
+    .posts-info {
+      padding: 0 2.5vw;
+      margin-top: 0.5vh;
+
+      div{
+        margin-top: 5%;
+        span {
+          margin-right: 1vw;
+          color: darkgray;
+        }
+      }
+    }
+
+  }
+  .card-album {
+    width: 50vw;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 1vh;
+    padding: 1vh 0.5vw;
+    background-color: $second-font-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    cursor: pointer;
+    padding: 2vh 0;
+    .album-info{
+      color: $base-font-color;
+      width: 100%;
+      .info-title{
+        width: 80%;
+        margin-left: 25%;
+        span {
+          margin-right: 1vw;
+          color: darkgray;
+        }
+      }
+    }
+
+  }
+  .wrap-pagination {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2vh;
+    .active{
+      background-color: $specify-red-color;
+      color: white;
+    }
+    div{
+      display: inline-block;
+    }
+      .page {
+        color: $second-font-color;
+        font-size: $font-size*0.8;
+        display: inline-block;
+        border: 1px solid $second-font-color;
+        width: 2vw;
+        height: 2vw;
+        cursor: pointer;
+        .page-number {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    .dot{
+      color: $second-font-color;
+      font-size: $font-size*3;
+      width: 4vw;
+      height: 2vw;
+      text-align: center;
+    }
+  }
+}
+

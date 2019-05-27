@@ -1,0 +1,7 @@
+<div class="sidebar">
+  <div class="sidebar-items">
+    <div class="sidebar-item" *ngFor="let menuItem of menuItems" [ngClass]="{'sidebar-item-active': menuItem.active}" (click)="onMenu(menuItem)">
+      {{menuItem.name}}
+    </div>
+  </div>
+</div>
