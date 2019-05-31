@@ -1,0 +1,22 @@
+<div class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <label for="login_field">Login:</label>
+    <input [ngClass]="{
+      'has-error': f.login.errors && f.login.touched,
+      'no-error': !f.login.errors
+    }" type="text" name="login" id="login_field"
+      formControlName="login">
+    <div class="error" *ngIf="formErrors.login">
+      {{ formErrors.login }}
+    </div>
+
+    <label for="password_field">Password:</label>
+      <input [ngClass]="{
+      'has-error': f.password.errors && f.password.touched,
+      'no-error': !f.password.errors }" type="password" name="password" id="password_field" formControlName="password">
+    <span class="error" *ngIf="formErrors.password">
+      {{ formErrors.password }}
+    </span>
+      <div class="submit"><input type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" value="Login"></div>
+  </form>
+</div>

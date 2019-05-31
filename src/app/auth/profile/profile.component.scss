@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .profile {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    padding: 2em 2em;
+    border: 1px solid silver;
+
+    button {
+      text-align: center;
+      margin-top: 1em;
+    }
+  }
+}

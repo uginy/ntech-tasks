@@ -1,0 +1,54 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+
+  .login {
+    display: flex;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 2em;
+    border: 1px solid silver;
+
+    form {
+      width:100%;
+
+      .submit {
+        text-align: center;
+        margin-top: 1em;
+      }
+
+      .no-error {
+        border:1px solid green;
+      }
+
+      input {
+        border: 1px solid rgb(139, 139, 139);
+        display:block;
+        width:100%;
+        padding: 4px 10px;
+        &:disabled {
+          background: #a8a8a8;
+        }
+      }
+
+      label {
+        display: block;
+      }
+
+      .has-error {
+        border-color: rgb(216, 12, 12);
+        color: rgb(230, 14, 14);
+      }
+
+      .error {
+        color: red;
+        font-size:0.8rem;
+      }
+    }
+
+  }
+}

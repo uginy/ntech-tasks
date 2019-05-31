@@ -1,0 +1,6 @@
+<div class="profile">
+  <h5>Login: <div class="badge badge-secondary" *ngIf="userdata">{{userdata.login}}</div>
+  </h5>
+  <h5>Password: <span class="badge badge-secondary" *ngIf="userdata">{{userdata.password}}</span></h5>
+  <button type="submit" (click)="logout()" class="btn btn-danger">Logout</button>
+</div>
