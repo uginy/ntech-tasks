@@ -1,2 +1,80 @@
-@import "../scss/globalVariables";
+:host {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav article";
+  grid-template-rows: 65px 1fr;
+  grid-template-columns: 20% 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  height: 100vh;
+  margin: 0;
+}
 
+header,
+article,
+nav,
+div {
+  padding: 1.2em;
+  background: rgb(170, 199, 196);
+}
+
+#pageHeader {
+  grid-area: header;
+  text-align: center;
+
+  span {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+
+    span {
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+#mainArticle {
+  grid-area: article;
+}
+
+#mainNav {
+  grid-area: nav;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      margin: 4px;
+    }
+
+    li a {
+      padding: 5px 10px;
+      display: block;
+      text-decoration: none;
+
+      &:hover {
+        background: darken(white, 10%);
+      }
+    }
+  }
+
+  .active {
+    background: white;
+  }
+}
+
+/* Stack the layout on small devices/viewports. */
+@media all and (max-width: 575px) {
+  :host {
+    grid-template-areas:
+      "header"
+      "nav"
+      "article";
+    grid-template-rows: 80px 1fr 2fr;
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,14 @@
 # AngularLearningApp
 
+## task
+
+в 3-е вью можно попасть только со списка альбомов, кликнув по соотвествующему, сделав запрос по id альбома.
+Хедер и меню должны быть всегда(статичны).
+Нужно сделать апликацию которая имеет хэдэр, навигационное меню и отображает дату которую нужно взять с API который я скинул.
+По клику на пункт меню должна быть навигация на другое вью и соотвественно должна отображаться другая дата.
+api.service.ts
+API https://jsonplaceholder.typicode.com/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
 ## Development server

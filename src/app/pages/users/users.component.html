@@ -1,0 +1,36 @@
+<div class="wrapper" id="data">
+  <div class="users-list" *ngFor="let user of pagedItems">
+    <div class="users-list__meta">
+      <div class="users-list__id">UID: {{user.id }}</div>
+      <div>Name: {{user.name}}</div>
+      <div>Email: {{user.email }}</div>
+      <div>Phone: {{user.phone }}</div>
+      <div>WebSite: <a href="http://{{user.website}}" target="_blank">{{user.website }}</a></div>
+      <div>Company: {{user.company.name }}</div>
+    </div>
+    <div class="users-list__footer">
+      <a [routerLink]="['/posts', user.id]">Posts</a>&nbsp;|&nbsp;
+      <a [routerLink]="['/albums', user.id]">Albums</a>
+    </div>
+  </div>
+</div>
+
+<div class="pagerstyle" id="pager_footer" *ngIf="pager.pages && pager.pages.length >1">
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+  </ul>
+</div>

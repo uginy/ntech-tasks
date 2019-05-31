@@ -1,10 +1,11 @@
-export const sourceUrl= "https://jsonplaceholder.typicode.com/";
-export const currentTypeData="photos";
-export const menuItems= [
-  {name:"Users", active: false, data:'users'},
-  {name:"Posts", active: false,data:'posts'},
-  {name:"Albums", active: false,data:'albums'},
-  {name:"Todos", active: false,data:'todos'},
-  {name:"Photos", active: true,data:'photos'}
+export const sourceUrl = 'https://jsonplaceholder.typicode.com/';
+export const currentTypeData = 'posts';
+export const menuItems = [
+  { name: 'Posts', active: true, data: 'posts' },
+  { name: 'Albums', active: true, data: 'albums' },
+  { name: 'Todos', active: false, data: 'todos' },
+  { name: 'Photos', active: false, data: 'photos' },
+  { name: 'Comments', active: true, data: 'comments' },
+  { name: 'Users', active: false, data: 'users' }
 ];
-export const itemsPerPage: number=20;
+export const itemsPerPage = 9;

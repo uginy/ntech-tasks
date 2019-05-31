@@ -1,0 +1,57 @@
+@import '../../../styles';
+
+:host {
+  display: grid;
+  grid-template-rows: auto 70px;
+  align-content: stretch;
+  grid-template-areas:
+    "data"
+    "pager_footer";
+
+  #pager_footer {
+    grid-area: pager_footer;
+  }
+
+  #data {
+    grid-area: data;
+  }
+
+  .wrapper {
+    display: grid;
+    justify-items: stretch;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: stretch;
+    align-content: stretch;
+    grid-gap: 10px;
+
+
+    .users-photos {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      margin: 2px;
+      background: lighten($color, 20%);
+
+      &:hover {
+        cursor: pointer;
+        background: lighten($color, 40%);
+      }
+
+      div {
+        padding: 1rem;
+      }
+
+      .users-photos__title {
+        border-top: 1px solid silver;
+        background: rgba(230, 232, 209, 0.482);
+      }
+
+      .users-photos__img {
+        height: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@import '../../../styles';
+
+:host {
+  display: grid;
+  grid-template-rows: auto   auto;
+  align-content: stretch;
+  grid-template-areas:
+    "data"
+    "pager_footer";
+
+  #pager_header {
+    grid-area: pager_header;
+  }
+
+  #pager_footer {
+    grid-area: pager_footer;
+  }
+
+  #data {
+    grid-area: data;
+  }
+
+  .wrapper {
+    display: grid;
+    justify-items: stretch;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: stretch;
+    align-content: stretch;
+    grid-gap: 10px;
+
+
+
+    .users-list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 5px;
+      background: lighten($color, 20%);
+
+      &:hover {
+        background: lighten($color, 40%);
+      }
+
+      .users-list__meta {
+        padding: 1rem;
+        border-top: 1px solid silver;
+        background: rgba(230, 232, 209, 0.482);
+      }
+
+      .users-list__footer {
+        display:flex;
+        height:100%;
+        align-items: flex-end;
+        padding: 1rem;
+      }
+    }
+  }
+}

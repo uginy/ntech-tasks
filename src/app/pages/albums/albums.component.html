@@ -1,0 +1,29 @@
+<div class="wrapper" id="data">
+  <div class="users-albums" *ngFor="let album of pagedItems" [routerLink]="['/photos', album.id]">
+    <div class="users-albums__id">
+      <div>Album ID: {{album.id}}</div>
+      <div><a [routerLink]="['/users', album.userId]"> UserID: {{album.userId}}</a></div>
+    </div>
+    <div class="users-albums__title">{{album.title}}</div>
+  </div>
+</div>
+<!-- pager -->
+<div class="pagerstyle" id="pager_footer" *ngIf="pager.pages && pager.pages.length >1">
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+  </ul>
+</div>
