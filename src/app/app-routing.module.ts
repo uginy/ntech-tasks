@@ -1,3 +1,4 @@
+import { currentTypeData } from './../assets/config';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './pages/users/users.component';
@@ -9,7 +10,7 @@ import { CommentsComponent } from './pages/comments/comments.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'posts',
+    redirectTo: currentTypeData,
     pathMatch: 'full'
   },
   {

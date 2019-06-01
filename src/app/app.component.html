@@ -1,7 +1,7 @@
 <header id="pageHeader">
   <span>
     <a routerLink="{{logoUrl}}">LOGO</a>
-    <span>{{message}}</span>
+    <h4>{{message}}</h4>
   </span>
 </header>
 
@@ -11,8 +11,5 @@
 <nav id="mainNav">
   <ul *ngFor="let menuItem of menus">
     <li><a routerLink="{{menuItem.data}}" routerLinkActive="active">{{menuItem.name}}</a></li>
-    <!-- <li><a routerLink="/">Posts</a></li>
-    <li><a routerLink="albums" routerLinkActive="active">Show Albums</a></li>
-    <li><a routerLink="comments" routerLinkActive="active">Show Comments</a></li> -->
   </ul>
 </nav>
