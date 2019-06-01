@@ -18,16 +18,16 @@ export class PostsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private pagerService: PagerService
   ) {}
-  title = 'Posts';
-  posts;
-  userdata: {};
-  id: number;
-  query: string;
+  private title = 'Posts';
+  private posts;
+  private userdata: {};
+  private id: number;
+  private query: string;
   private sub: any;
-  linkFind = _.find(menuItems, { name: this.title });
-  link = this.linkFind ? this.linkFind.data : currentTypeData;
-  pager: any = {};
-  pagedItems: any[];
+  private linkFind = _.find(menuItems, { name: this.title });
+  private link = this.linkFind ? this.linkFind.data : currentTypeData;
+  private pager: any = {};
+  private pagedItems: any[];
 
   ngOnInit() {
     this.data.changeMessage('List Of ' + this.title);

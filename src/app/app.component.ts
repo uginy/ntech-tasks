@@ -9,13 +9,15 @@ import { menuItems, currentTypeData } from 'src/assets/config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  message: string;
-  logoUrl;
-  menus: {};
-  constructor(private data: SimpledataService) {}
+  private message: string;
+  private logoUrl;
+  private menus: {};
+  constructor(private simpledataService: SimpledataService) {}
   ngOnInit() {
     this.logoUrl = currentTypeData;
     this.menus = _.filter(menuItems, { active: true });
-    this.data.currentMessage.subscribe(message => (this.message = message));
+    this.simpledataService.currentMessage.subscribe(
+      message => (this.message = message)
+    );
   }
 }

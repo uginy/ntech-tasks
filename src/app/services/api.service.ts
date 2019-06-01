@@ -20,7 +20,7 @@ const httpOptions = {
  */
 @Injectable()
 export class ApiService {
-  base: string;
+  private base: string;
   public responseCache = new Map();
   constructor(private http: HttpClient) {
     this.base = sourceUrl;

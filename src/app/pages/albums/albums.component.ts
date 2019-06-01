@@ -12,16 +12,15 @@ import * as _ from 'lodash';
   styleUrls: ['./albums.component.scss']
 })
 export class AlbumsComponent implements OnInit, OnDestroy {
-  albums: [];
-  title = 'Albums';
-  messages: string;
-  id: number;
-  query: string;
+  private albums: [];
+  private title = 'Albums';
+  private id: number;
+  private query: string;
   private sub: any;
-  linkFind = _.find(menuItems, { name: this.title });
-  link = this.linkFind ? this.linkFind.data : currentTypeData;
-  pager: any = {};
-  pagedItems: any[];
+  private linkFind = _.find(menuItems, { name: this.title });
+  private link = this.linkFind ? this.linkFind.data : currentTypeData;
+  private pager: any = {};
+  private pagedItems: any[];
 
   constructor(
     private api: ApiService,

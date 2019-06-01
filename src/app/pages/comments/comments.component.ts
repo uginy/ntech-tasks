@@ -12,19 +12,18 @@ import * as _ from 'lodash';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit, OnDestroy {
-  posts;
-  postdata: {};
-  userdata: {};
-  title = 'Posts';
-  comments = 'Comments';
-  messages: string;
-  id: number;
-  query: string;
+  private posts;
+  private postdata: {};
+  private userdata: {};
+  private title = 'Posts';
+  private comments = 'Comments';
+  private id: number;
+  private query: string;
   private sub: any;
-  linkFind = _.find(menuItems, { name: this.comments });
-  linkPosts = this.linkFind ? this.linkFind.data : currentTypeData;
-  pager: any = {};
-  pagedItems;
+  private linkFind = _.find(menuItems, { name: this.comments });
+  private linkPosts = this.linkFind ? this.linkFind.data : currentTypeData;
+  private pager: any = {};
+  private pagedItems;
 
   constructor(
     private api: ApiService,
