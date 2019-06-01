@@ -30,13 +30,12 @@ export class ApiService {
     return this.base + url;
   }
 
-  // Cached solution
+  // Caching for HTTP requests
   public getDataHttp(url: string): Observable<any> {
     const dataCache = this.responseCache.get(this.getUrl(url));
     if (dataCache) {
       return of(dataCache);
     }
-    console.log(dataCache);
     const response = this.http.get<any>(this.getUrl(url), httpOptions);
     response.subscribe(data => this.responseCache.set(this.getUrl(url), data));
     return response;

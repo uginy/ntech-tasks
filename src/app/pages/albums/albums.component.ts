@@ -12,7 +12,7 @@ import * as _ from 'lodash';
   styleUrls: ['./albums.component.scss']
 })
 export class AlbumsComponent implements OnInit, OnDestroy {
-  albums;
+  albums: [];
   title = 'Albums';
   messages: string;
   id: number;
@@ -49,7 +49,6 @@ export class AlbumsComponent implements OnInit, OnDestroy {
       data => {
         this.albums = data;
         this.setPage(1);
-        // console.log(this.posts);
       },
       err => {
         console.log(err);

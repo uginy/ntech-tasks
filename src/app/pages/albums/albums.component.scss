@@ -29,7 +29,6 @@
     align-content: stretch;
     grid-gap: 10px;
 
-
     .users-albums {
       display: flex;
       flex-direction: column;
@@ -54,11 +53,18 @@
 
       .users-albums__id {
         height: 100%;
-        display:flex;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
     }
+  }
+}
+
+@media all and (max-width: 575px) {
+  :host .wrapper {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
   }
 }
