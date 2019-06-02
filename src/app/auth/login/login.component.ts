@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 import { loginPattern, passwordPattern } from 'src/assets/config';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -49,16 +49,21 @@ export class LoginComponent implements OnInit {
 
     // Solution for making fields' validation on the fly.
     this.loginForm.valueChanges.subscribe(() => {
-      for (const field of Object.keys(this.formErrors)) {
-        this.formErrors[field] = '';
-        const control = this.loginForm.get(field);
+      const { formErrors, loginForm, validationMessages } = this;
+      const errorKeys = Object.keys(formErrors);
+
+      errorKeys.forEach(field => {
+        const control = loginForm.get(field);
+
         if (control && control.dirty && !control.valid) {
-          const message = this.validationMessages[field];
-          for (const key of Object.keys(control.errors)) {
-            this.formErrors[field] = message[key];
-          }
+          const message = validationMessages[field];
+          const controlErrorKeys = Object.keys(control.errors);
+
+          controlErrorKeys.forEach(key => {
+            formErrors[field] = message[key];
+          });
         }
-      }
+      });
     });
   }
 
