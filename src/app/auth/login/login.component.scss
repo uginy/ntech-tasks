@@ -1,11 +1,14 @@
 :host {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background: #DDD;
   box-sizing: border-box;
+  height: 100%;
 
   .login {
+    background: #FFF;
     display: flex;
     width: 400px;
     justify-content: center;
@@ -14,7 +17,7 @@
     border: 1px solid silver;
 
     form {
-      width:100%;
+      width: 100%;
 
       .submit {
         text-align: center;
@@ -22,14 +25,15 @@
       }
 
       .no-error {
-        border:1px solid green;
+        border: 1px solid green;
       }
 
       input {
         border: 1px solid rgb(139, 139, 139);
-        display:block;
-        width:100%;
+        display: block;
+        width: 100%;
         padding: 4px 10px;
+
         &:disabled {
           background: #a8a8a8;
         }
@@ -46,7 +50,7 @@
 
       .error {
         color: red;
-        font-size:0.8rem;
+        font-size: 0.8rem;
       }
     }
 

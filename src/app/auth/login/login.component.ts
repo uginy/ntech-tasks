@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { loginPattern, passwordPattern } from 'src/assets/config';
 
 @Component({
   selector: 'app-login',
@@ -9,20 +10,17 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
-  loginPattern: any = '^[a-zA-Z0-9_-]+$';
-  passwordPattern: any =
-    '^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)[A-Za-z\\d!$%@#£€*?&]+$';
+  public loginForm: FormGroup;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  formErrors = {
+  private formErrors = {
     login: '',
     password: ''
   };
 
   // Object with error messages
-  validationMessages = {
+  private validationMessages = {
     login: {
       required: 'Required field.',
       minlength: 'Specify at least 4 chars.',
@@ -39,41 +37,29 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       login: new FormControl(null, [
         Validators.required,
-        Validators.minLength(5),
-        Validators.pattern(this.loginPattern)
+        Validators.minLength(4),
+        Validators.pattern(loginPattern)
       ]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(10),
-        Validators.pattern(this.passwordPattern)
+        Validators.pattern(passwordPattern)
       ])
     });
 
-    this.loginForm.valueChanges.subscribe(formData =>
-      this.ControlValidator(formData)
-    );
-  }
-
-  get f() {
-    return this.loginForm.controls;
-  }
-
-  private ControlValidator(formData?: any) {
-    if (!this.loginForm) {
-      return;
-    }
-    const form = this.loginForm;
-
-    for (const field of Object.keys(this.formErrors)) {
-      this.formErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const message = this.validationMessages[field];
-        for (const key of Object.keys(control.errors)) {
-          this.formErrors[field] = message[key];
+    // Solution for making fields' validation on the fly.
+    this.loginForm.valueChanges.subscribe(() => {
+      for (const field of Object.keys(this.formErrors)) {
+        this.formErrors[field] = '';
+        const control = this.loginForm.get(field);
+        if (control && control.dirty && !control.valid) {
+          const message = this.validationMessages[field];
+          for (const key of Object.keys(control.errors)) {
+            this.formErrors[field] = message[key];
+          }
         }
       }
-    }
+    });
   }
 
   onSubmit() {

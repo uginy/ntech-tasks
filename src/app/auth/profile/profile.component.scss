@@ -1,8 +1,11 @@
 :host {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background: #DDD;
+  box-sizing: border-box;
+  height: 100%;
 
   .profile {
     display: flex;
@@ -12,6 +15,7 @@
     align-items: space-between;
     padding: 2em 2em;
     border: 1px solid silver;
+    background: #FFF;
 
     button {
       text-align: center;
