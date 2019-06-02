@@ -2,17 +2,15 @@
 
 :host {
   .users-post {
-    background-color: lighten($color, $amount: 10%);
-    padding: 1rem;
+    background-color: $bg10l;
+    padding: $pad1rm;
     margin-bottom: 1rem;
     display: flex;
-    border: 1px solid silver;
 
     .users-post__userid {
       padding: 20px 30px;
-      background: lighten($color, $amount: 30%);
+      background: $bg30l;
       margin-right: 1rem;
-      border: 1px solid silver;
       white-space: nowrap;
       display: flex;
       justify-content: center;
@@ -20,14 +18,13 @@
     }
 
     .users-post__meta {
-      border: 1px solid silver;
-      background: lighten($color, $amount: 20%);
+      background: $bg20l;
       width: 100%;
     }
 
     .users-post__title {
       padding: 10px;
-      background: lighten($color, $amount: 30%);
+      background: $bg30l;
     }
 
     .users-post__body {
@@ -35,7 +32,7 @@
     }
 
     .users-post__functions {
-      background: lighten($color, $amount: 25%);
+      background: $bg30l;
       padding: 1rem;
     }
   }

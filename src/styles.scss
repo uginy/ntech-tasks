@@ -1,9 +1,26 @@
 $color: rgb(170, 199, 196);
-.pagination a {
-  cursor: pointer;
+$pad5p: 5px;
+$pad1rm: 1rem;
+$brdsilv: 1px solid silver;
+
+$bg10l: lighten($color, $amount: 10%);
+$bg20l: lighten($color, $amount: 20%);
+$bg30l: lighten($color, $amount: 30%);
+$bg40l: lighten($color, $amount: 40%);
+$bg50l: lighten($color, $amount: 50%);
+
+body,
+html {
+  height: 100%;
 }
 
-.pagerstyle {
+.pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+
+  a {
+    cursor: pointer;
+  }
+
 }

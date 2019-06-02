@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
-import { SimpledataService } from './services/simpledata.service';
+import { MessageService } from './services/message.service';
 
 import { AppComponent } from './app.component';
 
@@ -24,7 +24,7 @@ import { UsersComponent } from './pages/users/users.component';
     UsersComponent
   ],
   imports: [HttpClientModule, BrowserModule, AppRoutingModule],
-  providers: [ApiService, SimpledataService, PagerService],
+  providers: [ApiService, MessageService, PagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

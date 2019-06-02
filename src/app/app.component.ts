@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SimpledataService } from './services/simpledata.service';
+import { MessageService } from './services/message.service';
 import * as _ from 'lodash';
 import { menuItems, currentTypeData } from 'src/assets/config';
 
@@ -9,14 +9,14 @@ import { menuItems, currentTypeData } from 'src/assets/config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  private message: string;
-  private logoUrl;
-  private menus: {};
-  constructor(private simpledataService: SimpledataService) {}
+  public message: string;
+  public logoUrl;
+  public menus: {};
+  constructor(private messageService: MessageService) {}
   ngOnInit() {
     this.logoUrl = currentTypeData;
     this.menus = _.filter(menuItems, { active: true });
-    this.simpledataService.currentMessage.subscribe(
+    this.messageService.currentMessage.subscribe(
       message => (this.message = message)
     );
   }

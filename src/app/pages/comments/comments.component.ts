@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { SimpledataService } from 'src/app/services/simpledata.service';
+import { MessageService } from 'src/app/services/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { PagerService } from 'src/app/services/pager.service';
 import { itemsPerPage, menuItems, currentTypeData } from 'src/assets/config';
@@ -13,7 +13,7 @@ import * as _ from 'lodash';
 })
 export class CommentsComponent implements OnInit, OnDestroy {
   private posts;
-  private postdata: {};
+  public postdata: {};
   private userdata: {};
   private title = 'Posts';
   private comments = 'Comments';
@@ -22,18 +22,18 @@ export class CommentsComponent implements OnInit, OnDestroy {
   private sub: any;
   private linkFind = _.find(menuItems, { name: this.comments });
   private linkPosts = this.linkFind ? this.linkFind.data : currentTypeData;
-  private pager: any = {};
-  private pagedItems;
+  public pager: any = {};
+  public pagedItems;
 
   constructor(
     private api: ApiService,
-    private data: SimpledataService,
+    private messageService: MessageService,
     private route: ActivatedRoute,
     private pagerService: PagerService
   ) {}
 
   ngOnInit() {
-    this.data.changeMessage('List Of ' + this.comments);
+    this.messageService.changeMessage('List Of ' + this.comments);
     this.sub = this.route.params.subscribe(params => {
       this.id = +params.id;
     });
@@ -44,7 +44,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
     this.fetchComments(this.id);
   }
 
-  getUser(id) {
+  private getUser(id) {
     this.api.getDataHttp('users/' + id).subscribe(
       data => {
         this.userdata = data;
@@ -55,7 +55,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
     );
   }
 
-  getPost(id) {
+  private getPost(id) {
     this.api.getDataHttp('posts/' + id).subscribe(
       data => {
         this.postdata = data;
@@ -101,6 +101,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }

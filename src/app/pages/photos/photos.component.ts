@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { SimpledataService } from 'src/app/services/simpledata.service';
+import { MessageService } from 'src/app/services/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { PagerService } from 'src/app/services/pager.service';
 import { itemsPerPage, menuItems, currentTypeData } from 'src/assets/config';
@@ -18,25 +18,25 @@ export class PhotosComponent implements OnInit, OnDestroy {
   private sub: any;
   private linkFind = _.find(menuItems, { name: this.title });
   private link = this.linkFind ? this.linkFind.data : currentTypeData;
-  private pager: any = {};
-  private pagedItems: any[];
+  public pager: any = {};
+  public pagedItems: any[];
 
   constructor(
     private api: ApiService,
-    private data: SimpledataService,
+    private messageService: MessageService,
     private route: ActivatedRoute,
     private pagerService: PagerService
   ) {}
 
   ngOnInit() {
-    this.data.changeMessage('List Of ' + this.title);
+    this.messageService.changeMessage('List Of ' + this.title);
     this.sub = this.route.params.subscribe(params => {
       this.id = +params.id;
     });
     this.fetchPhotos(this.id);
   }
 
-  fetchPhotos(id?) {
+  private fetchPhotos(id?) {
     if (!id) {
       this.query = this.link;
     } else {
@@ -54,7 +54,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
     );
   }
 
-  setPage(page: number) {
+  private setPage(page: number) {
     // get pager object from service
     this.pager = this.pagerService.getPager(
       this.photos.length,
@@ -70,6 +70,8 @@ export class PhotosComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }

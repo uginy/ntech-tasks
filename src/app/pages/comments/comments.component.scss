@@ -2,17 +2,17 @@
 
 :host {
   .users-post {
-    background-color: lighten($color, $amount: 10%);
-    padding: 1rem;
+    background-color: $bg10l;
+    padding: $pad1rm;
     margin-bottom: 1rem;
     display: flex;
-    border: 1px solid silver;
+    border: $brdsilv;
 
     .users-post__userid {
       padding: 20px 30px;
-      background: lighten($color, $amount: 30%);
+      background: $bg30l;
       margin-right: 1rem;
-      border: 1px solid silver;
+      border: $brdsilv;
       white-space: nowrap;
       display: flex;
       justify-content: center;
@@ -20,14 +20,14 @@
     }
 
     .users-post__meta {
-      border: 1px solid silver;
-      background: lighten($color, $amount: 20%);
+      border: $brdsilv;
+      background: $bg20l;
       width: 100%;
     }
 
     .users-post__title {
       padding: 10px;
-      background: lighten($color, $amount: 30%);
+      background: $bg30l;
     }
 
     .users-post__body {
@@ -36,19 +36,19 @@
   }
 
   .users-comments {
-    background-color: lighten($color, $amount: 10%);
-    padding: 1rem;
+    background-color: $bg10l;
+    padding: $pad1rm;
     margin-bottom: 1rem;
 
     .users-comments__meta {
-      padding: 5px;
-      background: lighten($color, $amount: 20%);
+      padding: $pad5p;
+      background: $bg20l;
       width: 100%;
     }
 
     .users-comments__body {
-      padding: 5px;
-      background: lighten($color, $amount: 30%);
+      padding: $pad5p;
+      background: $bg30l;
     }
   }
 }

@@ -1,15 +1,12 @@
-<div class="wrapper" id="data">
-  <div class="users-photos" *ngFor="let photo of pagedItems" [routerLink]="['/photos', photo.albumId]">
+<div class="wrapper">
+  <div class="users-photos" *ngFor="let photo of pagedItems">
     <div class="users-photos__img">
       <a href="{{photo.url}}" target="_blank" title="{{photo.title}}"><img src="{{photo.thumbnailUrl}}"
           alt="{{photo.title}}" /></a>
     </div>
     <div class="users-photos__title">{{photo.title}}</div>
   </div>
-</div>
-<!-- pager -->
-<div class="pagerstyle" id="pager_footer" *ngIf="pager.pages && pager.pages.length > 1">
-  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+  <ul *ngIf="pager?.pages?.length > 1" class="pagination">
     <li [ngClass]="{disabled:pager.currentPage === 1}">
       <a (click)="setPage(1)">First</a>
     </li>
