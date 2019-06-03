@@ -14,6 +14,30 @@ html {
   height: 100%;
 }
 
+pagination-controls {
+
+  ul {
+    background: #FFF;
+    padding: 0 5px;
+
+    li {
+      padding: 5px !important;
+
+      span {
+        padding: 5px !important;
+        margin: 0;
+      }
+
+      a {
+        span {
+          padding: 5px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
 .pagination {
   display: flex;
   flex-wrap: wrap;
@@ -22,5 +46,14 @@ html {
   a {
     cursor: pointer;
   }
+}
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
 }

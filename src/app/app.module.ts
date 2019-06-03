@@ -7,24 +7,10 @@ import { MessageService } from './services/message.service';
 
 import { AppComponent } from './app.component';
 
-import { PostsComponent } from './pages/posts/posts.component';
-import { AlbumsComponent } from './pages/albums/albums.component';
-import { PhotosComponent } from './pages/photos/photos.component';
-import { CommentsComponent } from './pages/comments/comments.component';
-import { PagerService } from './services/pager.service';
-import { UsersComponent } from './pages/users/users.component';
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    PostsComponent,
-    AlbumsComponent,
-    PhotosComponent,
-    CommentsComponent,
-    UsersComponent
-  ],
+  declarations: [AppComponent],
   imports: [HttpClientModule, BrowserModule, AppRoutingModule],
-  providers: [ApiService, MessageService, PagerService],
+  providers: [ApiService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -4,7 +4,7 @@
   grid-template-areas:
     "header header"
     "nav article";
-  grid-template-rows: 65px 1fr;
+  grid-template-rows: 4.5rem 1fr;
   grid-template-columns: 20% 1fr;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
@@ -19,9 +19,15 @@
     background: rgb(170, 199, 196);
   }
 
-  #pageHeader {
+  .pageHeader {
+    padding: 3px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    overflow-y: hidden;
     grid-area: header;
     text-align: center;
+    border-bottom: 1rem solid white;
 
     span {
       display: flex;
@@ -37,14 +43,23 @@
     }
   }
 
-  #mainArticle {
+  .mainArticle {
     grid-area: article;
   }
 
-  #mainNav {
+  .mainNav {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 4rem;
+    left: 0;
+    overflow-x: hidden;
     grid-area: nav;
+    text-align: center;
 
     ul {
+      padding-left: 0;
       list-style-type: none;
 
       li {
@@ -69,12 +84,24 @@
 }
 
 /* Stack the layout on small devices/viewports. */
-@media all and (max-width: 575px) {
+@media all and (max-width: 651px) {
   :host {
-    grid-template-areas:
-      "header"
-      "nav"
-      "article";
+    .mainNav {
+      top: 0;
+    }
+
+    .pageHeader,
+    .mainNav {
+      position: inherit;
+      overflow: auto;
+      width: 100%;
+      border-bottom: none;
+
+    }
+
+    grid-template-areas: "header"
+    "nav"
+    "article";
     grid-template-rows: 80px 1fr 2fr;
     grid-template-columns: 1fr;
   }

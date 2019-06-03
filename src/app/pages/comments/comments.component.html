@@ -1,3 +1,4 @@
+<div *ngIf="!items" class="loading"><img src="../../../assets/loading.gif"></div>
 <div class="users-post" *ngIf="postdata">
   <div class="users-post__userid">
     <a [routerLink]="['/users', postdata.userId]"> UserID: {{postdata.userId}}</a>
@@ -7,27 +8,12 @@
     <div class="users-post__body">{{postdata.body}}</div>
   </div>
 </div>
-<div class="users-comments" *ngFor="let comment of pagedItems">
+<div class="users-comments" *ngFor="let comment of items | paginate: { itemsPerPage: iPerPage, currentPage: p }">
   <div class="users-comments__body" *ngIf="!postdata">PostId: <a
       [routerLink]="['/comments', comment.postId]">#{{comment.postId}}</a>
   </div>
   <div class="users-comments__meta">Comment name: {{comment.name}} / {{comment.email}}</div>
   <div class="users-comments__body">{{comment.body}}</div>
 </div>
-<ul *ngIf="pager?.pages?.length > 1" class="pagination">
-  <li [ngClass]="{disabled:pager.currentPage === 1}">
-    <a (click)="setPage(1)">First</a>
-  </li>
-  <li [ngClass]="{disabled:pager.currentPage === 1}">
-    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-  </li>
-  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-    <a (click)="setPage(page)">{{page}}</a>
-  </li>
-  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-    <a (click)="setPage(pager.currentPage + 1)">Next</a>
-  </li>
-  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-    <a (click)="setPage(pager.totalPages)">Last</a>
-  </li>
-</ul>
+<pagination-controls *ngIf="items && items.length>iPerPage" (pageChange)="p = $event" class="pagination">
+</pagination-controls>

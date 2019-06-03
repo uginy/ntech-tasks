@@ -1,14 +1,15 @@
-<header id="pageHeader">
+<header class="pageHeader">
   <span>
-    <a routerLink="{{logoUrl}}">LOGO</a>
     <h4>{{message}}</h4>
   </span>
 </header>
 
-<article id="mainArticle">
+<article class="mainArticle">
   <router-outlet></router-outlet>
 </article>
-<nav id="mainNav">
+<nav class="mainNav">
+  <a routerLink="{{logoUrl}}">HOME</a>
+  <hr>
   <ul *ngFor="let menuItem of menus">
     <li><a routerLink="{{menuItem.data}}" routerLinkActive="active">{{menuItem.name}}</a></li>
   </ul>

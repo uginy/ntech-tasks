@@ -1,8 +1,6 @@
 import { currentTypeData } from './../assets/config';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UsersComponent } from './pages/users/users.component';
-import { PostsComponent } from './pages/posts/posts.component';
 import { AlbumsComponent } from './pages/albums/albums.component';
 import { PhotosComponent } from './pages/photos/photos.component';
 import { CommentsComponent } from './pages/comments/comments.component';
@@ -15,43 +13,53 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: UsersComponent
+    loadChildren: () =>
+      import('./pages/users/users.module').then(mod => mod.UsersModule)
   },
   {
     path: 'users/:id',
-    component: UsersComponent
+    loadChildren: () =>
+      import('./pages/users/users.module').then(mod => mod.UsersModule)
   },
   {
     path: 'posts',
-    component: PostsComponent
+    loadChildren: () =>
+      import('./pages/posts/posts.module').then(mod => mod.PostsModule)
   },
   {
     path: 'posts/:id',
-    component: PostsComponent
+    loadChildren: () =>
+      import('./pages/posts/posts.module').then(mod => mod.PostsModule)
   },
   {
     path: 'albums',
-    component: AlbumsComponent
+    loadChildren: () =>
+      import('./pages/albums/albums.module').then(mod => mod.AlbumsModule)
   },
   {
     path: 'albums/:id',
-    component: AlbumsComponent
+    loadChildren: () =>
+      import('./pages/albums/albums.module').then(mod => mod.AlbumsModule)
   },
   {
     path: 'photos',
-    component: PhotosComponent
+    loadChildren: () =>
+      import('./pages/photos/photos.module').then(mod => mod.PhotosModule)
   },
   {
     path: 'photos/:id',
-    component: PhotosComponent
+    loadChildren: () =>
+      import('./pages/photos/photos.module').then(mod => mod.PhotosModule)
   },
   {
     path: 'comments',
-    component: CommentsComponent
+    loadChildren: () =>
+      import('./pages/comments/comments.module').then(mod => mod.CommentsModule)
   },
   {
     path: 'comments/:id',
-    component: CommentsComponent
+    loadChildren: () =>
+      import('./pages/comments/comments.module').then(mod => mod.CommentsModule)
   }
 ];
 

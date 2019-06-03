@@ -19,12 +19,12 @@
       background: $bg20l;
 
       &:hover {
-        background: $bg40l;
+        background: $bg10l;
       }
 
       .users-list__meta {
         padding: $pad1rm;
-        background: rgba(230, 232, 209, 0.482);
+        background: $bg30l;
       }
 
       .users-list__footer {
