@@ -6,7 +6,7 @@
     display: grid;
     justify-items: stretch;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: stretch;
     align-content: stretch;
     grid-gap: 10px;
@@ -36,7 +36,19 @@
     }
 
     .pagination {
-      grid-column: 1/4;
+      grid-column: 1/3;
+    }
+  }
+}
+
+@media all and (max-width: 651px) {
+  :host {
+    .pagination {
+      grid-column: 1/1;
+    }
+
+    .wrapper {
+      display: block;
     }
   }
 }

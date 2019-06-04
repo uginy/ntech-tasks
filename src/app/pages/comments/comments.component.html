@@ -1,10 +1,11 @@
 <div *ngIf="!items" class="loading"><img src="../../../assets/loading.gif"></div>
 <div class="users-post" *ngIf="postdata">
   <div class="users-post__userid">
-    <a [routerLink]="['/users', postdata.userId]"> UserID: {{postdata.userId}}</a>
+    <a [routerLink]="['users', postdata.userId]"> UserID: {{postdata.userId}}</a>
   </div>
   <div class="users-post__meta">
-    <div class="users-post__title">#{{postdata.id}}: {{postdata.title}}</div>
+    <div class="users-post__title">PostID: {{postdata.id}} | <h1>{{postdata.title}}</h1>
+    </div>
     <div class="users-post__body">{{postdata.body}}</div>
   </div>
 </div>

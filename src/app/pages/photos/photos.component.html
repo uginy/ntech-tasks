@@ -1,4 +1,4 @@
-<div *ngIf="!posts" class="loading"><img src="../../../assets/loading.gif"></div>
+<div *ngIf="!items" class="loading"><img src="../../../assets/loading.gif"></div>
 <div class="wrapper">
   <div class="users-photos" *ngFor="let photo of items | paginate: { itemsPerPage: iPerPage, currentPage: p }">
     <div class="users-photos__img">

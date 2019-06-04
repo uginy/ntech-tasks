@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { MessageService } from 'src/app/services/message.service';
 import { ActivatedRoute } from '@angular/router';
-import { itemsPerPage, menuItems, currentTypeData } from 'src/assets/config';
-import * as _ from 'lodash';
+import { itemsPerPage } from 'src/assets/config';
 
 @Component({
   selector: 'app-posts',
@@ -16,51 +15,22 @@ export class PostsComponent implements OnInit {
     private messageService: MessageService,
     private route: ActivatedRoute
   ) {}
+
   private title = 'Posts';
-  private items: [];
-  private userdata: {};
+  private searchParam = '/?userId=';
   private id: number;
-  private query: string;
-  private linkFind = _.find(menuItems, { name: this.title });
-  private link = this.linkFind ? this.linkFind.data : currentTypeData;
-  public p = 1;
+  public items: [];
+
   public iPerPage: number;
+  public userdata;
+  public p;
 
   ngOnInit() {
     this.iPerPage = itemsPerPage;
-    this.messageService.changeMessage('List Of ' + this.title);
+    this.messageService.changeMessage(this.title);
     this.id = this.route.snapshot.params['id'];
-    if (this.id) {
-      this.getUser(this.id);
-    }
-    this.fetchPosts(this.id);
-  }
-
-  getUser(id: number) {
-    this.api.getDataHttp(`users/${id}`).subscribe(
-      userd => {
-        this.userdata = userd;
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  }
-
-  fetchPosts(id: number) {
-    if (!id) {
-      this.query = this.link;
-    } else {
-      this.query = `${this.link}/?userId=${id}`;
-    }
-
-    this.api.getDataHttp(this.query).subscribe(
-      data => {
-        this.items = data;
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    this.api.getItems(this.id, this.title, this.searchParam).subscribe(res => {
+      this.items = res;
+    });
   }
 }
