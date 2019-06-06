@@ -1,7 +1,6 @@
-<div *ngIf="!items" class="loading"><img src="../../../assets/loading.gif"></div>
 <div class="users-post" *ngIf="postdata">
   <div class="users-post__userid">
-    <a [routerLink]="['users', postdata.userId]"> UserID: {{postdata.userId}}</a>
+    <a [routerLink]="['/users', postdata.userId]"> UserID: {{postdata.userId}}</a>
   </div>
   <div class="users-post__meta">
     <div class="users-post__title">PostID: {{postdata.id}} | <h1>{{postdata.title}}</h1>
@@ -9,12 +8,13 @@
     <div class="users-post__body">{{postdata.body}}</div>
   </div>
 </div>
-<div class="users-comments" *ngFor="let comment of items | paginate: { itemsPerPage: iPerPage, currentPage: p }">
+<div class="users-comments"
+  *ngFor="let comment of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
   <div class="users-comments__body" *ngIf="!postdata">PostId: <a
       [routerLink]="['/comments', comment.postId]">#{{comment.postId}}</a>
   </div>
   <div class="users-comments__meta">Comment name: {{comment.name}} / {{comment.email}}</div>
   <div class="users-comments__body">{{comment.body}}</div>
 </div>
-<pagination-controls *ngIf="items && items.length>iPerPage" (pageChange)="p = $event" class="pagination">
+<pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event" class="pagination">
 </pagination-controls>

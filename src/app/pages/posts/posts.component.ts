@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import { MessageService } from 'src/app/services/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { itemsPerPage } from 'src/assets/config';
+import { DataService } from 'src/app/services/data.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,26 +10,22 @@ import { itemsPerPage } from 'src/assets/config';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
+  isLoaded: string;
   constructor(
-    private api: ApiService,
-    private messageService: MessageService,
-    private route: ActivatedRoute
+    private data: DataService,
+    private route: ActivatedRoute,
+    private messageService: MessageService
   ) {}
 
   private title = 'Posts';
   private searchParam = '/?userId=';
-  private id: number;
+  public id: number = this.route.snapshot.params['id'];
   public items: [];
-
-  public iPerPage: number;
-  public userdata;
-  public p;
+  public itemsPerPage: number = itemsPerPage;
+  public currentPage: number;
 
   ngOnInit() {
-    this.iPerPage = itemsPerPage;
-    this.messageService.changeMessage(this.title);
-    this.id = this.route.snapshot.params['id'];
-    this.api.getItems(this.id, this.title, this.searchParam).subscribe(res => {
+    this.data.dataLoad(this.id, this.title, this.searchParam).subscribe(res => {
       this.items = res;
     });
   }

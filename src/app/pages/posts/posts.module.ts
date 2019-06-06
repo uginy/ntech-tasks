@@ -1,11 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostsRoutingModule } from './posts-routing.module';
 import { PostsComponent } from './posts.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: PostsComponent
+  },
+  {
+    path: ':id',
+    component: PostsComponent
+  }
+];
 
 @NgModule({
-  imports: [CommonModule, PostsRoutingModule, NgxPaginationModule],
+  imports: [CommonModule, RouterModule.forChild(routes), NgxPaginationModule],
   declarations: [PostsComponent]
 })
 export class PostsModule {}

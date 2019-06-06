@@ -1,6 +1,6 @@
-<div *ngIf="!items" class="loading"><img src="../../../assets/loading.gif"></div>
 <div class="wrapper">
-  <div class="users-albums" *ngFor="let album of items | paginate: { itemsPerPage: iPerPage, currentPage: p }"
+  <div class="users-albums"
+    *ngFor="let album of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"
     [routerLink]="['/photos', album.id]">
     <div class="users-albums__id">
       <div>Album ID: {{album.id}}</div>
@@ -8,6 +8,7 @@
     </div>
     <div class="users-albums__title">{{album.title}}</div>
   </div>
-  <pagination-controls *ngIf="items && items.length>iPerPage" (pageChange)="p = $event" class="pagination">
+  <pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event"
+    class="pagination">
   </pagination-controls>
 </div>

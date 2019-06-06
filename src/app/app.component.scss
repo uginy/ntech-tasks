@@ -19,7 +19,7 @@
     background: rgb(170, 199, 196);
   }
 
-  .pageHeader {
+  .page-headers {
     padding: 3px;
     width: 100%;
     position: fixed;
@@ -43,11 +43,11 @@
     }
   }
 
-  .mainArticle {
+  .main-articles {
     grid-area: article;
   }
 
-  .mainNav {
+  .main-navs {
     height: 100%;
     width: 20%;
     position: fixed;
@@ -86,12 +86,12 @@
 /* Stack the layout on small devices/viewports. */
 @media all and (max-width: 651px) {
   :host {
-    .mainNav {
+    .main-navs {
       top: 0;
     }
 
-    .pageHeader,
-    .mainNav {
+    .page-headers,
+    .main-navs {
       position: inherit;
       overflow: auto;
       width: 100%;

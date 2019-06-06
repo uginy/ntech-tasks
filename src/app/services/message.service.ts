@@ -7,7 +7,7 @@ export class MessageService {
 
   constructor() {}
 
-  changeMessage(message: string) {
+  public changeMessage(message: string) {
     this.messageSource.next(message);
   }
 }

@@ -1,11 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CommentsRoutingModule } from './comments-routing.module';
 import { CommentsComponent } from './comments.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { Routes, RouterModule } from '@angular/router';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: CommentsComponent
+  },
+  {
+    path: ':id',
+    component: CommentsComponent
+  }
+];
 @NgModule({
-  imports: [CommonModule, CommentsRoutingModule, NgxPaginationModule],
+  imports: [CommonModule, RouterModule.forChild(routes), NgxPaginationModule],
   declarations: [CommentsComponent]
 })
 export class CommentsModule {}

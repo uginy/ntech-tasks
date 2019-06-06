@@ -1,5 +1,4 @@
-<div *ngIf="!items" class="loading"><img src="../../../assets/loading.gif"></div>
-<div class="users-post" *ngFor="let post of items | paginate: { itemsPerPage: iPerPage, currentPage: p }">
+<div class="users-post" *ngFor="let post of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
   <div class="users-post__userid">
     <a [routerLink]="['/users', post.userId]"> UserID: {{post.userId}}</a>
   </div>
@@ -13,5 +12,5 @@
     </div>
   </div>
 </div>
-<pagination-controls *ngIf="items && items.length>iPerPage" (pageChange)="p = $event" class="pagination">
+<pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event" class="pagination">
 </pagination-controls>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import { MessageService } from 'src/app/services/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { itemsPerPage } from 'src/assets/config';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-albums',
@@ -10,24 +9,17 @@ import { itemsPerPage } from 'src/assets/config';
   styleUrls: ['./albums.component.scss']
 })
 export class AlbumsComponent implements OnInit {
-  constructor(
-    private api: ApiService,
-    private messageService: MessageService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private data: DataService, private route: ActivatedRoute) {}
 
   private title = 'Albums';
-  private sparam = '/?userId=';
-  private id: number;
+  private searchParam = '/?userId=';
+  public id: number = this.route.snapshot.params['id'];
   public items: [];
-  public iPerPage: number;
-  public p;
+  public itemsPerPage: number = itemsPerPage;
+  public currentPage: number;
 
   ngOnInit() {
-    this.iPerPage = itemsPerPage;
-    this.messageService.changeMessage(this.title);
-    this.id = this.route.snapshot.params['id'];
-    this.api.getItems(this.id, this.title, this.sparam).subscribe(res => {
+    this.data.dataLoad(this.id, this.title, this.searchParam).subscribe(res => {
       this.items = res;
     });
   }

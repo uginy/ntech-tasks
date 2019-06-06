@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { sourceUrl, menuItems, currentTypeData } from '../../assets/config';
+import { sourceUrl } from '../../assets/config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import * as _ from 'lodash';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  constructor(private http: HttpClient) {
+  public isLoaded;
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {
     this.base = sourceUrl;
   }
-  private title: string;
   private base: string;
   private responseCache = new Map();
-  public items: [];
-  public link;
-  public linkFind: {};
 
   public httpOptions = {
     headers: new HttpHeaders({
@@ -29,20 +29,8 @@ export class ApiService {
     return this.base + url;
   }
 
-  public getItems(
-    id: number,
-    title: string = currentTypeData,
-    separator: string = '/?id='
-  ) {
-    this.title = _.find(menuItems, { name: title }).data;
-    if (id) {
-      this.title = `${this.title}${separator}${id}`;
-    }
-    return this.getDataHttp(this.title);
-  }
-
   // Caching for HTTP requests
-  private getDataHttp(url: string): Observable<any> {
+  public getDataHttp(url: string): Observable<any> {
     const dataCache = this.responseCache.get(this.getUrl(url));
     if (dataCache) {
       return of(dataCache);
