@@ -1,16 +1,4 @@
-<div class="users-post" *ngFor="let post of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
-  <div class="users-post__userid">
-    <a [routerLink]="['/users', post.userId]"> UserID: {{post.userId}}</a>
-  </div>
-  <div class="users-post__meta">
-    <div class="users-post__title">#{{post.id}}: {{post.title}}</div>
-    <div class="users-post__body">{{post.body}}</div>
-    <div class="users-post__functions">
-      <a [routerLink]="['/comments', post.id]" routerLinkActive="active">Comments</a> |
-      <a [routerLink]="['/albums', post.userId]" routerLinkActive="active">Albums</a> |
-      <a [routerLink]="['/posts', post.userId]" routerLinkActive="active">User's Posts</a>
-    </div>
-  </div>
-</div>
+<app-post [itemsFromParent]="post"
+  *ngFor="let post of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"></app-post>
 <pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event" class="pagination">
 </pagination-controls>

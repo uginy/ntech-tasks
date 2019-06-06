@@ -1,0 +1,39 @@
+@import 'src/styles.scss';
+
+:host {
+  .users-post {
+    background-color: $bg10l;
+    padding: $pad1rm;
+    margin-bottom: 1rem;
+    display: flex;
+
+    .users-post__userid {
+      padding: 20px 30px;
+      background: $bg30l;
+      margin-right: 1rem;
+      white-space: nowrap;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .users-post__meta {
+      background: $bg20l;
+      width: 100%;
+    }
+
+    .users-post__title {
+      padding: 10px;
+      background: $bg30l;
+    }
+
+    .users-post__body {
+      padding: 10px;
+    }
+
+    .users-post__functions {
+      background: $bg30l;
+      padding: 1rem;
+    }
+  }
+}

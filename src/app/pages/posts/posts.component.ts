@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { itemsPerPage } from 'src/assets/config';
 import { DataService } from 'src/app/services/data.service';
-import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,12 +9,7 @@ import { MessageService } from 'src/app/services/message.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  isLoaded: string;
-  constructor(
-    private data: DataService,
-    private route: ActivatedRoute,
-    private messageService: MessageService
-  ) {}
+  constructor(private data: DataService, private route: ActivatedRoute) {}
 
   private title = 'Posts';
   private searchParam = '/?userId=';

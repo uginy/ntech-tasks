@@ -5,6 +5,7 @@
 </header>
 
 <article class="main-articles">
+  <div *ngIf="loading" color="accent">Loading in progress....</div>
   <router-outlet></router-outlet>
 </article>
 <nav class="main-navs">

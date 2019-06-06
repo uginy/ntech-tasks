@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { itemsPerPage } from 'src/assets/config';
 import { DataService } from 'src/app/services/data.service';
-import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-users',

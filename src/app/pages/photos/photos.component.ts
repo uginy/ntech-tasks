@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { itemsPerPage } from 'src/assets/config';
 import { DataService } from 'src/app/services/data.service';

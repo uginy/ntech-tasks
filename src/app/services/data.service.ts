@@ -12,7 +12,6 @@ export class DataService {
   private title: string;
   public items: [];
   public linkFind: {};
-  data: any;
 
   constructor(
     private api: ApiService,

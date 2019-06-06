@@ -1,8 +1,8 @@
+import { MessageService } from './message.service';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { sourceUrl } from '../../assets/config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'

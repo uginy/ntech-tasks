@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PostsComponent } from './posts.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterModule, Routes } from '@angular/router';
+import { PostComponent } from './post/post.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes), NgxPaginationModule],
-  declarations: [PostsComponent]
+  declarations: [PostsComponent, PostComponent]
 })
 export class PostsModule {}
