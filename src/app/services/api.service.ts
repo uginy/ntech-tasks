@@ -8,11 +8,7 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class ApiService {
-  public isLoaded;
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService
-  ) {
+  constructor(private http: HttpClient) {
     this.base = sourceUrl;
   }
   private base: string;
