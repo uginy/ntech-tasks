@@ -7,10 +7,9 @@ import { MessageService } from './services/message.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavComponent } from './layout/nav/nav.component';
-import { LoaderComponent } from './layout/loader/loader.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, NavComponent, LoaderComponent],
+  declarations: [AppComponent, HeaderComponent, NavComponent],
   imports: [HttpClientModule, BrowserModule, AppRoutingModule],
   providers: [ApiService, MessageService],
   bootstrap: [AppComponent]
