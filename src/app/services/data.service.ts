@@ -11,7 +11,6 @@ import { find } from 'lodash';
 export class DataService {
   private title: string;
   public items: [];
-  public linkFind: {};
 
   constructor(
     private api: ApiService,
