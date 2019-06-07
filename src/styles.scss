@@ -3,6 +3,8 @@ $pad5p: 5px;
 $pad1rm: 1rem;
 $brdsilv: 1px solid silver;
 
+$bg-articles: rgb(170, 199, 196);
+$bg-nav: rgb(170, 199, 196);
 $bg10l: lighten($color, $amount: 10%);
 $bg20l: lighten($color, $amount: 20%);
 $bg30l: lighten($color, $amount: 30%);
@@ -12,6 +14,10 @@ $bg50l: lighten($color, $amount: 50%);
 body,
 html {
   height: 100%;
+}
+
+app-header {
+  background: $color;
 }
 
 h1,
@@ -35,11 +41,9 @@ pagination-controls {
         margin: 0;
       }
 
-      a {
-        span {
-          padding: 5px;
-          display: block;
-        }
+      a span {
+        padding: 5px;
+        display: block;
       }
     }
   }

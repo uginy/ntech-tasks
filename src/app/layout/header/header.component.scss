@@ -1,0 +1,44 @@
+@import 'src/styles.scss';
+
+.page-headers {
+  padding: 3px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  overflow-y: hidden;
+  grid-area: header;
+  text-align: center;
+  border-bottom: 1rem solid white;
+  background: $color;
+
+  span {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+
+    h4 {
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+@media all and (max-width: 651px) {
+  :host {
+
+    .page-headers {
+      position: inherit;
+      overflow: auto;
+      width: 100%;
+      border-bottom: none;
+    }
+
+    grid-template-areas: "header"
+    "nav"
+    "article";
+    grid-template-rows: 80px 1fr 2fr;
+    grid-template-columns: 1fr;
+  }
+}

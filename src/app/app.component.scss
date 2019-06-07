@@ -1,3 +1,5 @@
+@import '../styles.scss';
+
 :host {
 
   display: grid;
@@ -11,102 +13,20 @@
   height: 100vh;
   margin: 0;
 
-  header,
-  article,
-  nav,
-  div {
-    padding: 1.2em;
-    background: rgb(170, 199, 196);
-  }
-
-  .page-headers {
-    padding: 3px;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    overflow-y: hidden;
-    grid-area: header;
-    text-align: center;
-    border-bottom: 1rem solid white;
-
-    span {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      width: 100%;
-
-      h4 {
-        text-align: center;
-        display: block;
-        width: 100%;
-      }
-    }
-  }
-
   .main-articles {
     grid-area: article;
-  }
-
-  .main-navs {
-    height: 100%;
-    width: 20%;
-    position: fixed;
-    z-index: 1;
-    top: 4rem;
-    left: 0;
-    overflow-x: hidden;
-    grid-area: nav;
-    text-align: center;
-
-    ul {
-      padding-left: 0;
-      list-style-type: none;
-
-      li {
-        margin: 4px;
-      }
-
-      li a {
-        padding: 5px 10px;
-        display: block;
-        text-decoration: none;
-
-        &:hover {
-          background: darken(white, 10%);
-        }
-      }
-    }
-
-    .active {
-      background: white;
-    }
+    background: $bg-articles;
+    padding: 1rem;
   }
 }
 
 /* Stack the layout on small devices/viewports. */
 @media all and (max-width: 651px) {
   :host {
-    .main-navs {
-      top: 0;
-    }
-
-    .page-headers,
-    .main-navs {
-      position: inherit;
-      overflow: auto;
-      width: 100%;
-      border-bottom: none;
-
-    }
-
     grid-template-areas: "header"
-    "nav"
-    "article";
-    grid-template-rows: 80px 1fr 2fr;
+      "nav"
+      "article";
+    grid-template-rows: 40px 1fr 2fr;
     grid-template-columns: 1fr;
   }
-}
-
-.ldb {
-  height: 200px;
 }

@@ -1,0 +1,7 @@
+<nav class="main-navs">
+  <a routerLink="{{homeUrl}}">HOME</a>
+  <hr>
+  <ul *ngFor="let menuItem of menus">
+    <li><a routerLink="{{menuItem.data}}" routerLinkActive="active">{{menuItem.name}}</a></li>
+  </ul>
+</nav>

@@ -1,17 +1,5 @@
-<header class="page-headers">
-  <span>
-    <h4>{{message}}</h4>
-  </span>
-</header>
-
+<app-header [InMessage]="message"></app-header>
 <article class="main-articles">
-  <div *ngIf="loading" color="accent">Loading in progress....</div>
   <router-outlet></router-outlet>
 </article>
-<nav class="main-navs">
-  <a routerLink="{{homeUrl}}">HOME</a>
-  <hr>
-  <ul *ngFor="let menuItem of menus">
-    <li><a routerLink="{{menuItem.data}}" routerLinkActive="active">{{menuItem.name}}</a></li>
-  </ul>
-</nav>
+<app-nav [HomeUrl]="homeUrl" [MenuData]="menus"></app-nav>

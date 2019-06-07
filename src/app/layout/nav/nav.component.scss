@@ -1,0 +1,61 @@
+@import 'src/styles.scss';
+
+.main-navs {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 4rem;
+  left: 0;
+  overflow-x: hidden;
+  grid-area: nav;
+  text-align: center;
+  background: $bg-nav;
+  padding-top: 2rem;
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+
+    li {
+      margin: 4px;
+    }
+
+    li a {
+      padding: 5px 10px;
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        background: darken(white, 10%);
+      }
+    }
+  }
+
+  .active {
+    background: white;
+  }
+}
+
+@media all and (max-width: 651px) {
+  :host {
+    .main-navs {
+      top: 0;
+    }
+
+    .main-navs {
+      position: inherit;
+      overflow: auto;
+      width: 100%;
+      border-bottom: none;
+
+    }
+
+    grid-template-areas: "header"
+    "nav"
+    "article";
+    grid-template-rows: 80px 1fr 2fr;
+    grid-template-columns: 1fr;
+  }
+}
