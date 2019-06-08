@@ -1,12 +1,12 @@
 <div class="wrapper">
   <div class="users-albums"
-    *ngFor="let album of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"
-    [routerLink]="['/photos', album.id]">
+    *ngFor="let item of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"
+    [routerLink]="['/photos', item.id]">
     <div class="users-albums__id">
-      <div>Album ID: {{album.id}}</div>
-      <div><a [routerLink]="['/users', album.userId]"> UserID: {{album.userId}}</a></div>
+      <div>Album ID: {{item.id}}</div>
+      <div><a [routerLink]="['/users', item.userId]"> UserID: {{item.userId}}</a></div>
     </div>
-    <div class="users-albums__title">{{album.title}}</div>
+    <div class="users-albums__title">{{item.title}}</div>
   </div>
   <pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event"
     class="pagination">

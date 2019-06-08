@@ -1,4 +1,4 @@
-<app-post [itemsFromParent]="post"
-  *ngFor="let post of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"></app-post>
+<app-post [itemsFromParent]="item"
+  *ngFor="let item of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"></app-post>
 <pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event" class="pagination">
 </pagination-controls>

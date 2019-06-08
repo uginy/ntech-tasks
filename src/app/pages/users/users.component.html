@@ -1,17 +1,17 @@
 <div class="wrapper">
   <div class="users-list"
-    *ngFor="let user of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+    *ngFor="let item of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
     <div class="users-list__meta">
-      <div class="users-list__id">UID: {{user.id }}</div>
-      <div>Name: {{user.name}}</div>
-      <div>Email: {{user.email }}</div>
-      <div>Phone: {{user.phone }}</div>
-      <div>WebSite: <a href="http://{{user.website}}" target="_blank">{{user.website }}</a></div>
-      <div>Company: {{user.company.name }}</div>
+      <div class="users-list__id">UID: {{item.id }}</div>
+      <div>Name: {{item.name}}</div>
+      <div>Email: {{item.email }}</div>
+      <div>Phone: {{item.phone }}</div>
+      <div>WebSite: <a href="http://{{item.website}}" target="_blank">{{item.website }}</a></div>
+      <div>Company: {{item.company.name }}</div>
     </div>
     <div class="users-list__footer">
-      <a [routerLink]="['/posts', user.id]">Posts</a>&nbsp;|&nbsp;
-      <a [routerLink]="['/albums', user.id]">Albums</a>
+      <a [routerLink]="['/posts', item.id]">Posts</a>&nbsp;|&nbsp;
+      <a [routerLink]="['/albums', item.id]">Albums</a>
     </div>
   </div>
   <pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event"

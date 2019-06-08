@@ -9,12 +9,12 @@
   </div>
 </div>
 <div class="users-comments"
-  *ngFor="let comment of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+  *ngFor="let item of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
   <div class="users-comments__body" *ngIf="!postdata">PostId: <a
-      [routerLink]="['/comments', comment.postId]">#{{comment.postId}}</a>
+      [routerLink]="['/comments', item.postId]">#{{item.postId}}</a>
   </div>
-  <div class="users-comments__meta">Comment name: {{comment.name}} / {{comment.email}}</div>
-  <div class="users-comments__body">{{comment.body}}</div>
+  <div class="users-comments__meta">Comment name: {{item.name}} / {{item.email}}</div>
+  <div class="users-comments__body">{{item.body}}</div>
 </div>
 <pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event" class="pagination">
 </pagination-controls>

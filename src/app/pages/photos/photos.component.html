@@ -1,11 +1,11 @@
 <div class="wrapper">
   <div class="users-photos"
-    *ngFor="let photo of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+    *ngFor="let item of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
     <div class="users-photos__img">
-      <a href="{{photo.url}}" target="_blank" title="{{photo.title}}"><img src="{{photo.thumbnailUrl}}"
-          alt="{{photo.title}}" /></a>
+      <a href="{{item.url}}" target="_blank" title="{{item.title}}"><img src="{{item.thumbnailUrl}}"
+          alt="{{item.title}}" /></a>
     </div>
-    <div class="users-photos__title">{{photo.title}}</div>
+    <div class="users-photos__title">{{item.title}}</div>
   </div>
   <pagination-controls *ngIf="items && items.length>itemsPerPage" (pageChange)="currentPage = $event"
     class="pagination">
